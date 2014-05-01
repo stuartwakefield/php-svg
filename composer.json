@@ -1,0 +1,14 @@
+{
+	"name": "stuartw-io/svg",
+	"autoload":
+	{
+		"psr-0":
+		{
+			"Svg": "src"
+		}
+	},
+	"require-dev":
+	{
+		"phpunit/phpunit": "*"
+	}
+}

@@ -1,0 +1,18 @@
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true">
+
+	<testsuite>
+		<directory>test</directory>
+	</testsuite>
+
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory>src</directory>
+		</whitelist>
+	</filter>
+
+	<logging>
+		<log type="coverage-html" target="report/coverage"/>
+	</logging>
+
+</phpunit>
