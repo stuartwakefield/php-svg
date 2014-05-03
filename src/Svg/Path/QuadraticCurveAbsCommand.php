@@ -37,7 +37,7 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class QuadraticCurveToCommand implements Command {
+class QuadraticCurveAbsCommand implements Command {
 	
 	/**
 	 * @var number|string

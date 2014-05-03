@@ -37,8 +37,8 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class MoveToCommand implements Command {
-
+class LineAbsCommand implements Command {
+	
 	/**
 	 * @var number|string
 	 */
@@ -62,7 +62,7 @@ class MoveToCommand implements Command {
 	 * @return string
 	 */
 	public function __toString() {
-		return CommandUtil::toString('M', array(
+		return CommandUtil::toString('L', array(
 			$this->x, $this->y
 		));
 	}

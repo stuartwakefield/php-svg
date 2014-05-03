@@ -59,7 +59,7 @@ class Data {
 	 * @return self
 	 */
 	public function moveTo($x, $y) {
-		$this->commands->add(new MoveToCommand($x, $y));
+		$this->commands->add(new MoveAbsCommand($x, $y));
 		return $this;
 	}
 
@@ -71,7 +71,7 @@ class Data {
 	 * @return self
 	 */
 	public function move($dx, $dy) {
-		$this->commands->add(new MoveCommand($dx, $dy));
+		$this->commands->add(new MoveRelCommand($dx, $dy));
 		return $this;
 	}
 
@@ -83,7 +83,7 @@ class Data {
 	 * @return self
 	 */
 	public function lineTo($x, $y) {
-		$this->commands->add(new LineToCommand($x, $y));
+		$this->commands->add(new LineAbsCommand($x, $y));
 		return $this;
 	}
 
@@ -95,7 +95,7 @@ class Data {
 	 * @return self
 	 */
 	public function line($dx, $dy) {
-		$this->commands->add(new LineCommand($dx, $dy));
+		$this->commands->add(new LineRelCommand($dx, $dy));
 		return $this;
 	}
 
@@ -106,7 +106,7 @@ class Data {
 	 * @return self
 	 */
 	public function horizontalLineTo($x) {
-		$this->commands->add(new HorizontalLineToCommand($x));
+		$this->commands->add(new HorizontalLineAbsCommand($x));
 		return $this;
 	}
 
@@ -117,7 +117,7 @@ class Data {
 	 * @return self
 	 */
 	public function horizontalLine($dx) {
-		$this->commands->add(new HorizontalLineCommand($dx));
+		$this->commands->add(new HorizontalLineRelCommand($dx));
 		return $this;
 	}
 
@@ -128,7 +128,7 @@ class Data {
 	 * @return self
 	 */
 	public function verticalLineTo($y) {
-		$this->commands->add(new VerticalLineToCommand($y));
+		$this->commands->add(new VerticalLineAbsCommand($y));
 		return $this;
 	}
 
@@ -139,7 +139,7 @@ class Data {
 	 * @return self
 	 */
 	public function verticalLine($dy) {
-		$this->commands->add(new VerticalLineCommand($dy));
+		$this->commands->add(new VerticalLineRelCommand($dy));
 		return $this;
 	}
 
@@ -169,7 +169,7 @@ class Data {
 	 * @return self
 	 */
 	public function quadraticCurveTo($cx, $cy, $x, $y) {
-		$this->commands->add(new QuadraticCurveToCommand($cx, $cy, $x, $y));
+		$this->commands->add(new QuadraticCurveAbsCommand($cx, $cy, $x, $y));
 		return $this;
 	}
 

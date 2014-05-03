@@ -37,34 +37,25 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class LineCommand implements Command {
-
-	/**
-	 * @var number|string
-	 */
-	private $dx;
-
+class VerticalLineRelCommand implements Command {
+	
 	/**
 	 * @var number|string
 	 */
 	private $dy;
 
 	/**
-	 * @param number|string $dx
 	 * @param number|string $dy
 	 */
-	public function __construct($dx, $dy) {
-		$this->dx = $dx;
+	public function __construct($dy) {
 		$this->dy = $dy;
 	}
 
 	/**
-	 * @return string
+	 * @param string
 	 */
 	public function __toString() {
-		return CommandUtil::toString('l', array(
-			$this->dx, $this->dy
-		));
+		return CommandUtil::toString('v', array($this->dy));
 	}
 
 }

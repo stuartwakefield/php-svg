@@ -37,34 +37,25 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class MoveCommand implements Command {
-	
+class HorizontalLineRelCommand implements Command {
+
 	/**
 	 * @var number|string
 	 */
 	private $dx;
 
 	/**
-	 * @var number|string
-	 */
-	private $dy;
-
-	/**
 	 * @param number|string $dx
-	 * @param number|string $dy
 	 */
-	public function __construct($dx, $dy) {
+	public function __construct($dx) {
 		$this->dx = $dx;
-		$this->dy = $dy;
 	}
 
 	/**
 	 * @return string
 	 */
 	public function __toString() {
-		return CommandUtil::toString('m', array(
-			$this->dx, $this->dy
-		));
+		return CommandUtil::toString('h', array($this->dx));
 	}
 
 }

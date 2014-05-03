@@ -37,7 +37,7 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class HorizontalLineToCommand implements Command {
+class MoveAbsCommand implements Command {
 
 	/**
 	 * @var number|string
@@ -45,17 +45,26 @@ class HorizontalLineToCommand implements Command {
 	private $x;
 
 	/**
-	 * @param number|string $x
+	 * @var number|string
 	 */
-	public function __construct($x) {
+	private $y;
+
+	/**
+	 * @param number|string $x
+	 * @param number|string $y
+	 */
+	public function __construct($x, $y) {
 		$this->x = $x;
+		$this->y = $y;
 	}
 
 	/**
 	 * @return string
 	 */
 	public function __toString() {
-		return CommandUtil::toString('H', array($this->x));
+		return CommandUtil::toString('M', array(
+			$this->x, $this->y
+		));
 	}
 
 }
