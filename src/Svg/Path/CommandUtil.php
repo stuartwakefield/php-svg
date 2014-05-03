@@ -27,20 +27,28 @@
 
 namespace Svg\Path;
 
-class MoveToCommand implements Command {
-
-	private $x;
-	private $y;
-
-	public function __construct($x, $y) {
-		$this->x = $x;
-		$this->y = $y;
-	}
-
-	public function __toString() {
-		return CommandUtil::toString('M', array(
-			$this->x, $this->y
-		));
+/**
+ * Utility class containing static helper methods for processing commands.
+ * 
+ * @package    Svg
+ * @subpackage Path
+ * @author     Stuart Wakefield <me@stuartwakefield.co.uk>
+ * @copyright  2014 Stuart Wakefield <me@stuartwakefield.co.uk>
+ * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
+ * @link       http://github.com/stuartwakefield/php-svg
+ */
+class CommandUtil {
+	
+	/**
+	 * Formats a command string given the command identifier and parameters.
+	 * @see http://www.w3.org/TR/SVG11/paths.html#PathData
+	 * 
+	 * @param  string $identifier The command identifier.
+	 * @param  array  $params     The command parameters.
+	 * @return string
+	 */
+	public static function toString($identifier, $params) {
+		return $identifier . implode(' ', $params);
 	}
 
 }

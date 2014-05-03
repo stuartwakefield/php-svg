@@ -27,19 +27,19 @@
 
 namespace Svg\Path;
 
-class MoveToCommand implements Command {
+class LineCommand implements Command {
 
-	private $x;
-	private $y;
+	private $dx;
+	private $dy;
 
-	public function __construct($x, $y) {
-		$this->x = $x;
-		$this->y = $y;
+	public function __construct($dx, $dy) {
+		$this->dx = $dx;
+		$this->dy = $dy;
 	}
 
 	public function __toString() {
-		return CommandUtil::toString('M', array(
-			$this->x, $this->y
+		return CommandUtil::toString('l', array(
+			$this->dx, $this->dy
 		));
 	}
 

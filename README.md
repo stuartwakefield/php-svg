@@ -1,4 +1,4 @@
-# SVG for PHP
+# PHP Scalable Vector Graphics
 
 SVG library for PHP. _In progress..._
 
@@ -30,7 +30,7 @@ $c
 $d = new Svg\Path;
 $d
     ->moveTo(15, 25)
-    ->arcTo(20, 20, 0, 0, 1, 35, 25)
+    ->arcTo(10, 10, 0, 0, 0, 35, 25)
     ->fill('none')
     ->stroke('black')
     ->strokeWidth(2);
@@ -51,7 +51,7 @@ $svg->toXMLString('UTF-8'); /* outputs:
         <circle cx="25" cy="25" r="15" fill="yellow"/>
         <circle cx="20" cy="20" r="2" fill="black"/>
         <circle cx="30" cy="20" r="2" fill="black"/>
-        <path d="M15 25A20 20 0 0 1 35 25" fill="none" stroke="black" stroke-width="2"/>
+        <path d="M15 25A10 10 0 0 0 35 25" fill="none" stroke="black" stroke-width="2"/>
     </g>
 </svg>
 

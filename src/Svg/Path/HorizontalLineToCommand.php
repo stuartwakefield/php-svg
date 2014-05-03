@@ -27,20 +27,16 @@
 
 namespace Svg\Path;
 
-class MoveToCommand implements Command {
+class HorizontalLineToCommand implements Command {
 
 	private $x;
-	private $y;
 
-	public function __construct($x, $y) {
+	public function __construct($x) {
 		$this->x = $x;
-		$this->y = $y;
 	}
 
 	public function __toString() {
-		return CommandUtil::toString('M', array(
-			$this->x, $this->y
-		));
+		return CommandUtil::toString('H', array($this->x));
 	}
 
 }
