@@ -58,15 +58,21 @@ class SvgPathDataTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testHorizontalLine() {
-
+		$path = new Svg\Path\Data;
+		$path->horizontalLine(24);
+		$this->assertEquals('h24', (string) $path);
 	}
 
 	public function testVerticalLineTo() {
-
+		$path = new Svg\Path\Data;
+		$path->verticalLineTo(678);
+		$this->assertEquals('V678', (string) $path);
 	}
 
 	public function testVerticalLine() {
-
+		$path = new Svg\Path\Data;
+		$path->verticalLine(-42);
+		$this->assertEquals('v-42', (string) $path);
 	}
 
 	public function testCubicCurveTo() {

@@ -107,6 +107,18 @@ class Data {
 		$this->commands->add(new HorizontalLineToCommand($x));
 	}
 
+	public function horizontalLine($dx) {
+		$this->commands->add(new HorizontalLineCommand($dx));
+	}
+
+	public function verticalLineTo($y) {
+		$this->commands->add(new VerticalLineToCommand($y));
+	}
+
+	public function verticalLine($dy) {
+		$this->commands->add(new VerticalLineCommand($dy));
+	}
+
 	/**
 	 * @see http://www.w3.org/TR/SVG11/paths.html#PathDataQuadraticBezierCommands
 	 * 

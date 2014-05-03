@@ -27,6 +27,16 @@
 
 namespace Svg\Path;
 
+/**
+ *
+ * 
+ * @package    Svg
+ * @subpackage Path
+ * @author     Stuart Wakefield <me@stuartwakefield.co.uk>
+ * @copyright  2014 Stuart Wakefield <me@stuartwakefield.co.uk>
+ * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
+ * @link       http://github.com/stuartwakefield/php-svg
+ */
 class LineToCommand implements Command {
 	
 	private $x;

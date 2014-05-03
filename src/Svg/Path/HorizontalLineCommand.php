@@ -37,16 +37,16 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class HorizontalLineToCommand implements Command {
+class HorizontalLineCommand implements Command {
 
-	private $x;
+	private $dx;
 
-	public function __construct($x) {
-		$this->x = $x;
+	public function __construct($dx) {
+		$this->dx = $dx;
 	}
 
 	public function __toString() {
-		return CommandUtil::toString('H', array($this->x));
+		return CommandUtil::toString('h', array($this->dx));
 	}
 
 }
