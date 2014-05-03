@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class MoveAbsCommand implements Command {
 
+	private $type = Command::MOVE_ABS;
+
 	/**
 	 * @var number|string
 	 */
@@ -58,13 +60,16 @@ class MoveAbsCommand implements Command {
 		$this->y = $y;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('M', array(
-			$this->x, $this->y
-		));
+	public function type() {
+		return $this->type;
+	}
+
+	public function x() {
+		return $this->x;
+	}
+
+	public function y() {
+		return $this->y;
 	}
 
 }

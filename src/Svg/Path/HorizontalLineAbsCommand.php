@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class HorizontalLineAbsCommand implements Command {
 
+	private $type = Command::LINE_HORIZONTAL_ABS;
+
 	/**
 	 * @var number|string
 	 */
@@ -51,11 +53,12 @@ class HorizontalLineAbsCommand implements Command {
 		$this->x = $x;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('H', array($this->x));
+	public function type() {
+		return $this->type;
+	}
+
+	public function x() {
+		return $this->x;
 	}
 
 }

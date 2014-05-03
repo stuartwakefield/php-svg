@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class QuadraticCurveAbsCommand implements Command {
 	
+	private $type = Command::QUADRATIC_CURVE_ABS;
+
 	/**
 	 * @var number|string
 	 */
@@ -72,13 +74,24 @@ class QuadraticCurveAbsCommand implements Command {
 		$this->y = $y;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('Q', array(
-			$this->cx, $this->cy, $this->x, $this->y
-		));
+	public function type() {
+		return $this->type;
+	}
+
+	public function cx() {
+		return $this->cx;
+	}
+
+	public function cy() {
+		return $this->cy;
+	}
+
+	public function x() {
+		return $this->x;
+	}
+
+	public function y() {
+		return $this->y;
 	}
 
 }

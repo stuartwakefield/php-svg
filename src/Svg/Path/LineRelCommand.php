@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class LineRelCommand implements Command {
 
+	private $type = Command::LINE_REL;
+
 	/**
 	 * @var number|string
 	 */
@@ -58,13 +60,16 @@ class LineRelCommand implements Command {
 		$this->dy = $dy;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('l', array(
-			$this->dx, $this->dy
-		));
+	public function type() {
+		return $this->type;
+	}
+
+	public function dx() {
+		return $this->dx;
+	}
+
+	public function dy() {
+		return $this->dy;
 	}
 
 }

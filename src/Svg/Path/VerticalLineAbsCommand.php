@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class VerticalLineAbsCommand implements Command {
 
+	private $type = Command::LINE_VERTICAL_ABS;
+
 	/**
 	 * @var number|string
 	 */
@@ -51,11 +53,12 @@ class VerticalLineAbsCommand implements Command {
 		$this->y = $y;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('V', array($this->y));
+	public function type() {
+		return $this->type;
+	}
+
+	public function y() {
+		return $this->y;
 	}
 
 }

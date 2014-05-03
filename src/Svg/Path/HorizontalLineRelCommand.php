@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class HorizontalLineRelCommand implements Command {
 
+	private $type = Command::LINE_HORIZONTAL_REL;
+
 	/**
 	 * @var number|string
 	 */
@@ -51,11 +53,12 @@ class HorizontalLineRelCommand implements Command {
 		$this->dx = $dx;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('h', array($this->dx));
+	public function type() {
+		return $this->type;
+	}
+
+	public function dx() {
+		return $this->dx;
 	}
 
 }

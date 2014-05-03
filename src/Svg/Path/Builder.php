@@ -27,6 +27,8 @@
 
 namespace Svg\Path;
 
+use ArrayIterator;
+
 /**
  * @see http://www.w3.org/TR/SVG11/paths.html#PathData
  *
@@ -37,10 +39,10 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class Data {
+class Builder {
 	
 	/**
-	 * @var CommandSet
+	 * @var array
 	 */
 	private $commands;
 
@@ -48,7 +50,7 @@ class Data {
 	 * 
 	 */
 	public function __construct() {
-		$this->commands = new CommandSet;
+		$this->commands = array();
 	}
 
 	/**
@@ -59,7 +61,7 @@ class Data {
 	 * @return self
 	 */
 	public function moveTo($x, $y) {
-		$this->commands->add(new MoveAbsCommand($x, $y));
+		$this->commands[] = new MoveAbsCommand($x, $y);
 		return $this;
 	}
 
@@ -71,7 +73,7 @@ class Data {
 	 * @return self
 	 */
 	public function move($dx, $dy) {
-		$this->commands->add(new MoveRelCommand($dx, $dy));
+		$this->commands[] = new MoveRelCommand($dx, $dy);
 		return $this;
 	}
 
@@ -83,7 +85,7 @@ class Data {
 	 * @return self
 	 */
 	public function lineTo($x, $y) {
-		$this->commands->add(new LineAbsCommand($x, $y));
+		$this->commands[] = new LineAbsCommand($x, $y);
 		return $this;
 	}
 
@@ -95,7 +97,7 @@ class Data {
 	 * @return self
 	 */
 	public function line($dx, $dy) {
-		$this->commands->add(new LineRelCommand($dx, $dy));
+		$this->commands[] = new LineRelCommand($dx, $dy);
 		return $this;
 	}
 
@@ -106,7 +108,7 @@ class Data {
 	 * @return self
 	 */
 	public function horizontalLineTo($x) {
-		$this->commands->add(new HorizontalLineAbsCommand($x));
+		$this->commands[] = new HorizontalLineAbsCommand($x);
 		return $this;
 	}
 
@@ -117,7 +119,7 @@ class Data {
 	 * @return self
 	 */
 	public function horizontalLine($dx) {
-		$this->commands->add(new HorizontalLineRelCommand($dx));
+		$this->commands[] = new HorizontalLineRelCommand($dx);
 		return $this;
 	}
 
@@ -128,7 +130,7 @@ class Data {
 	 * @return self
 	 */
 	public function verticalLineTo($y) {
-		$this->commands->add(new VerticalLineAbsCommand($y));
+		$this->commands[] = new VerticalLineAbsCommand($y);
 		return $this;
 	}
 
@@ -139,7 +141,7 @@ class Data {
 	 * @return self
 	 */
 	public function verticalLine($dy) {
-		$this->commands->add(new VerticalLineRelCommand($dy));
+		$this->commands[] = new VerticalLineRelCommand($dy);
 		return $this;
 	}
 
@@ -155,7 +157,12 @@ class Data {
 	 * @return self
 	 */
 	public function curveTo($x1, $y1, $x2, $y2, $x, $y) {
-		$this->commands->add(new CubicBezierCurveAbsCommand($x1, $y1, $x2, $y2, $x, $y));
+		$this->commands[] = new CubicBezierCurveAbsCommand($x1, $y1, $x2, $y2, $x, $y);
+		return $this;
+	}
+
+	public function curve($dx1, $dy1, $dx2, $dy2, $dx, $dy) {
+		$this->commands[] = new CubicBezierCurveRelCommand($dx1, $dy1, $dx2, $dy2, $dx, $dy);
 		return $this;
 	}
 
@@ -169,15 +176,15 @@ class Data {
 	 * @return self
 	 */
 	public function quadraticCurveTo($cx, $cy, $x, $y) {
-		$this->commands->add(new QuadraticCurveAbsCommand($cx, $cy, $x, $y));
+		$this->commands[] = new QuadraticCurveAbsCommand($cx, $cy, $x, $y);
 		return $this;
 	}
 
 	/**
-	 * @return string
+	 * @return CommandList
 	 */
-	public function __toString() {
-		return (string) $this->commands;
+	public function commands() {
+		return new ArrayIterator($this->commands);
 	}
 
 }

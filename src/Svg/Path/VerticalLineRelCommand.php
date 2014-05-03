@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class VerticalLineRelCommand implements Command {
 	
+	private $type = Command::LINE_VERTICAL_REL;
+
 	/**
 	 * @var number|string
 	 */
@@ -51,11 +53,12 @@ class VerticalLineRelCommand implements Command {
 		$this->dy = $dy;
 	}
 
-	/**
-	 * @param string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('v', array($this->dy));
+	public function type() {
+		return $this->type;
+	}
+
+	public function dy() {
+		return $this->dy;
 	}
 
 }

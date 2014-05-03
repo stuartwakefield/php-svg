@@ -38,13 +38,29 @@ namespace Svg\Path;
  * @link       http://github.com/stuartwakefield/php-svg
  */
 interface Command {
-	
+
+	const UNKNOWN = 0;
+	const CLOSE = 1;
+	const MOVE_ABS = 2;
+	const MOVE_REL = 3;
+	const LINE_ABS = 4;
+	const LINE_REL = 5;
+	const CUBIC_CURVE_ABS = 6;
+	const CUBIC_CURVE_REL = 7;
+	const QUADRATIC_CURVE_ABS = 8;
+	const QUADRATIC_CURVE_REL = 9;
+	const ARC_ABS = 10;
+	const ARC_REL = 11;
+	const LINE_HORIZONTAL_ABS = 12;
+	const LINE_HORIZONTAL_REL = 13;
+	const LINE_VERTICAL_ABS = 14;
+	const LINE_VERTICAL_REL = 15;
+
 	/** 
-	 * Retrieves the command data as a string that can be used as the data
-	 * attribute value.
+	 * Returns the type of the current command.
 	 *
-	 * @return string
+	 * @return int
 	 */
-	public function __toString();
+	public function type();
 
 }

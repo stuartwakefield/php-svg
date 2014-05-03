@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class CubicBezierCurveAbsCommand implements Command {
 
+	private $type = Command::CUBIC_CURVE_ABS;
+
 	/**
 	 * @var number|string
 	 */
@@ -86,13 +88,32 @@ class CubicBezierCurveAbsCommand implements Command {
 		$this->y = $y;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('C', array(
-			$this->x1, $this->y1, $this->x2, $this->y2, $this->x, $this->y
-		));
+	public function type() {
+		return $this->type;
+	}
+
+	public function x1() {
+		return $this->x1;
+	}
+
+	public function y1() {
+		return $this->y1;
+	}
+
+	public function x2() {
+		return $this->x2;
+	}
+
+	public function y2() {
+		return $this->y2;
+	}
+
+	public function x() {
+		return $this->x;
+	}
+
+	public function y() {
+		return $this->y;
 	}
 
 }

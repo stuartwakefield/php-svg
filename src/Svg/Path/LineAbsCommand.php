@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class LineAbsCommand implements Command {
 	
+	private $type = Command::LINE_ABS;
+	
 	/**
 	 * @var number|string
 	 */
@@ -58,13 +60,16 @@ class LineAbsCommand implements Command {
 		$this->y = $y;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('L', array(
-			$this->x, $this->y
-		));
+	public function type() {
+		return $this->type;
+	}
+
+	public function x() {
+		return $this->x;
+	}
+
+	public function y() {
+		return $this->y;
 	}
 
 }

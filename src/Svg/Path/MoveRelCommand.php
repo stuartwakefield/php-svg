@@ -39,6 +39,8 @@ namespace Svg\Path;
  */
 class MoveRelCommand implements Command {
 	
+	private $type = Command::MOVE_REL;
+
 	/**
 	 * @var number|string
 	 */
@@ -58,13 +60,16 @@ class MoveRelCommand implements Command {
 		$this->dy = $dy;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function __toString() {
-		return CommandUtil::toString('m', array(
-			$this->dx, $this->dy
-		));
+	public function type() {
+		return $this->type;
+	}
+
+	public function dx() {
+		return $this->dx;
+	}
+
+	public function dy() {
+		return $this->dy;
 	}
 
 }
