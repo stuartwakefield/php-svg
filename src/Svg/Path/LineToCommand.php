@@ -39,14 +39,28 @@ namespace Svg\Path;
  */
 class LineToCommand implements Command {
 	
+	/**
+	 * @var number|string
+	 */
 	private $x;
+
+	/**
+	 * @var number|string
+	 */
 	private $y;
 
+	/**
+	 * @param number|string $x
+	 * @param number|string $y
+	 */
 	public function __construct($x, $y) {
 		$this->x = $x;
 		$this->y = $y;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function __toString() {
 		return CommandUtil::toString('L', array(
 			$this->x, $this->y

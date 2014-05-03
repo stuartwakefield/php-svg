@@ -39,12 +39,21 @@ namespace Svg\Path;
  */
 class HorizontalLineToCommand implements Command {
 
+	/**
+	 * @var number|string
+	 */
 	private $x;
 
+	/**
+	 * @param number|string $x
+	 */
 	public function __construct($x) {
 		$this->x = $x;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function __toString() {
 		return CommandUtil::toString('H', array($this->x));
 	}

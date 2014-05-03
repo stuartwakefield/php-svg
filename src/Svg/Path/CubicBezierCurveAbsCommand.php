@@ -37,33 +37,61 @@ namespace Svg\Path;
  * @license    http://opensource.org/licenses/MIT  The MIT License (MIT)
  * @link       http://github.com/stuartwakefield/php-svg
  */
-class LineCommand implements Command {
+class CubicBezierCurveAbsCommand implements Command {
 
 	/**
 	 * @var number|string
 	 */
-	private $dx;
+	private $x1;
 
 	/**
 	 * @var number|string
 	 */
-	private $dy;
+	private $y1;
 
 	/**
-	 * @param number|string $dx
-	 * @param number|string $dy
+	 * @var number|string
 	 */
-	public function __construct($dx, $dy) {
-		$this->dx = $dx;
-		$this->dy = $dy;
+	private $x2;
+
+	/**
+	 * @var number|string
+	 */
+	private $y2;
+
+	/**
+	 * @var number|string
+	 */
+	private $x;
+
+	/**
+	 * @var number|string
+	 */
+	private $y;
+
+	/**
+	 * @param number|string $x1
+	 * @param number|string $y1
+	 * @param number|string $x2
+	 * @param number|string $y2
+	 * @param number|string $x
+	 * @param number|string $y
+	 */
+	public function __construct($x1, $y1, $x2, $y2, $x, $y) {
+		$this->x1 = $x1;
+		$this->y1 = $y1;
+		$this->x2 = $x2;
+		$this->y2 = $y2;
+		$this->x = $x;
+		$this->y = $y;
 	}
 
 	/**
 	 * @return string
 	 */
 	public function __toString() {
-		return CommandUtil::toString('l', array(
-			$this->dx, $this->dy
+		return CommandUtil::toString('C', array(
+			$this->x1, $this->y1, $this->x2, $this->y2, $this->x, $this->y
 		));
 	}
 

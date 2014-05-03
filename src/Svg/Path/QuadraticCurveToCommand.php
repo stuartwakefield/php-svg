@@ -39,11 +39,32 @@ namespace Svg\Path;
  */
 class QuadraticCurveToCommand implements Command {
 	
+	/**
+	 * @var number|string
+	 */
 	private $cx;
+
+	/**
+	 * @var number|string
+	 */
 	private $cy;
+
+	/**
+	 * @var number|string
+	 */
 	private $x;
+
+	/**
+	 * @var number|string
+	 */
 	private $y;
 
+	/**
+	 * @param number|string $cx
+	 * @param number|string $cy
+	 * @param number|string $x
+	 * @param number|string $y
+	 */
 	public function __construct($cx, $cy, $x, $y) {
 		$this->cx = $cx;
 		$this->cy = $cy;
@@ -51,6 +72,9 @@ class QuadraticCurveToCommand implements Command {
 		$this->y = $y;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function __toString() {
 		return CommandUtil::toString('Q', array(
 			$this->cx, $this->cy, $this->x, $this->y

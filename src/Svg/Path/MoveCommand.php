@@ -39,14 +39,28 @@ namespace Svg\Path;
  */
 class MoveCommand implements Command {
 	
+	/**
+	 * @var number|string
+	 */
 	private $dx;
+
+	/**
+	 * @var number|string
+	 */
 	private $dy;
 
+	/**
+	 * @param number|string $dx
+	 * @param number|string $dy
+	 */
 	public function __construct($dx, $dy) {
 		$this->dx = $dx;
 		$this->dy = $dy;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function __toString() {
 		return CommandUtil::toString('m', array(
 			$this->dx, $this->dy

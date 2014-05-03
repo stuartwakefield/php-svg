@@ -84,6 +84,7 @@ class Data {
 	 */
 	public function lineTo($x, $y) {
 		$this->commands->add(new LineToCommand($x, $y));
+		return $this;
 	}
 
 	/**
@@ -95,6 +96,7 @@ class Data {
 	 */
 	public function line($dx, $dy) {
 		$this->commands->add(new LineCommand($dx, $dy));
+		return $this;
 	}
 
 	/**
@@ -105,18 +107,56 @@ class Data {
 	 */
 	public function horizontalLineTo($x) {
 		$this->commands->add(new HorizontalLineToCommand($x));
+		return $this;
 	}
 
+	/**
+	 * @see http://www.w3.org/TR/SVG11/paths.html#PathDataLinetoCommands
+	 * 
+	 * @param  number|string $dx
+	 * @return self
+	 */
 	public function horizontalLine($dx) {
 		$this->commands->add(new HorizontalLineCommand($dx));
+		return $this;
 	}
 
+	/**
+	 * @see http://www.w3.org/TR/SVG11/paths.html#PathDataLinetoCommands
+	 * 
+	 * @param  number|string $y
+	 * @return self
+	 */
 	public function verticalLineTo($y) {
 		$this->commands->add(new VerticalLineToCommand($y));
+		return $this;
 	}
 
+	/**
+	 * @see http://www.w3.org/TR/SVG11/paths.html#PathDataLinetoCommands
+	 * 
+	 * @param  number|string $dx
+	 * @return self
+	 */
 	public function verticalLine($dy) {
 		$this->commands->add(new VerticalLineCommand($dy));
+		return $this;
+	}
+
+	/**
+	 * @see http://www.w3.org/TR/SVG11/paths.html#PathDataCubicBezierCommands
+	 *
+	 * @param  number|string $x1
+	 * @param  number|string $y1
+	 * @param  number|string $x2
+	 * @param  number|string $y2
+	 * @param  number|string $x
+	 * @param  number|string $y
+	 * @return self
+	 */
+	public function curveTo($x1, $y1, $x2, $y2, $x, $y) {
+		$this->commands->add(new CubicBezierCurveAbsCommand($x1, $y1, $x2, $y2, $x, $y));
+		return $this;
 	}
 
 	/**
@@ -130,6 +170,7 @@ class Data {
 	 */
 	public function quadraticCurveTo($cx, $cy, $x, $y) {
 		$this->commands->add(new QuadraticCurveToCommand($cx, $cy, $x, $y));
+		return $this;
 	}
 
 	/**

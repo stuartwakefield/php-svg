@@ -76,7 +76,9 @@ class SvgPathDataTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testCubicCurveTo() {
-
+		$path = new Svg\Path\Data;
+		$path->curveTo(123, 32, 142, 23, 31, 123);
+		$this->assertEquals('C123 32 142 23 31 123', (string) $path);
 	}
 
 	public function testCubicCurve() {

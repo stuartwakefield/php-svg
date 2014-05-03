@@ -39,12 +39,21 @@ namespace Svg\Path;
  */
 class VerticalLineCommand implements Command {
 	
+	/**
+	 * @var number|string
+	 */
 	private $dy;
 
+	/**
+	 * @param number|string $dy
+	 */
 	public function __construct($dy) {
 		$this->dy = $dy;
 	}
 
+	/**
+	 * @param string
+	 */
 	public function __toString() {
 		return CommandUtil::toString('v', array($this->dy));
 	}
